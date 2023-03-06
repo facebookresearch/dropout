@@ -18,21 +18,22 @@ Figure: We propose **early dropout** and **late dropout**. Early dropout helps u
 
 ### Early Dropout
 
-results with basic recipe
+results with basic recipe (s.d. = stochastic depth)
 
 | model| ViT-T | Mixer-S | Swin-F | ConvNeXt-F |
 |:---|:---:|:---:|:---:|:---:|
-| baseline     | 73.9  | 71.0       | 74.3   | 76.1       |
+| no dropout     | 73.9  | 71.0       | 74.3   | 76.1       |
 | standard dropout   | 67.9  | 67.1       | 71.6   | -          |
 | standard s.d. | 72.6  | 70.5       | 73.7   | 75.5       |
 | early dropout     | **74.3**  | **71.3**       | **74.7**   | -          |
 | early s.d.    | **74.4**  | **71.7**       | **75.2**   | **76.3**       |
 
+
 results with improved recipe
 
 | model        | ViT-T | Swin-F | ConvNeXt-F |
 |:------------|:-----:|:------:|:----------:|
-| baseline     | 76.3  | 76.1   | 77.5       |
+| no dropout     | 76.3  | 76.1   | 77.5       |
 | standard dropout   | 71.5  | 73.5   | -          |
 | standard s.d. | 75.6  | 75.6   | 77.4       |
 | early dropout     | **76.7**  | **76.6**   | -          |
@@ -44,7 +45,7 @@ results with basic recipe
 
 | model        | ViT-B | Mixer-B |
 |:------------:|:-----:|:-------:|
-| baseline     | 81.6  | 78.0    |
+| standard s.d.   | 81.6  | 78.0    |
 | late s.d.    | 82.3  | 78.6    |
 
 
@@ -65,7 +66,7 @@ multi-node
 python run_with_submitit.py --nodes 4 --ngpus 8 \
 --model vit_tiny --epochs 300 \
 --batch_size 128 --lr 4e-3 --update_freq 1 \
---dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epochs 50 \
+--dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
 --data_path /path/to/data/ \
 --output_dir /path/to/results/
 ```
@@ -75,18 +76,17 @@ single-machine
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --model vit_tiny --epochs 300 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
---dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epochs 50 \
+--dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
 --data_path /path/to/data/ \
 --output_dir /path/to/results/
 ```
 
 **Early stochastic depth**
-
 ```
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --model vit_tiny --epochs 300 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
---drop_path 0.5 --drop_mode early --drop_schedule linear --cutoff_epochs 50 \
+--drop_path 0.5 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
 --data_path /path/to/data/ \
 --output_dir /path/to/results/
 ```
@@ -96,7 +96,17 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --model vit_base --epochs 300 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
---drop_path 0.4 --drop_mode late --drop_schedule constant --cutoff_epochs 50 \
+--drop_path 0.4 --drop_mode late --drop_schedule constant --cutoff_epoch 50 \
+--data_path /path/to/data/ \
+--output_dir /path/to/results/
+```
+
+**Standard dropout / no dropout** (replace $p with 0.1 / 0.0)
+```
+python -m torch.distributed.launch --nproc_per_node=8 main.py \
+--model vit_tiny --epochs 300 \
+--batch_size 128 --lr 4e-3 --update_freq 4 \
+--dropout $p --drop_mode standard \
 --data_path /path/to/data/ \
 --output_dir /path/to/results/
 ```
@@ -110,7 +120,7 @@ Our improved recipe extends training epochs from `300` to `600`, and reduces bot
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --model vit_tiny --epochs 600 --mixup 0.3 --cutmix 0.3 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
---dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epochs 50 \
+--dropout 0.1 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
 --data_path /path/to/data/ \
 --output_dir /path/to/results/
 ```
@@ -120,7 +130,7 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --model vit_tiny --epochs 600 --mixup 0.3 --cutmix 0.3 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
---drop_path 0.5 --drop_mode early --drop_schedule linear --cutoff_epochs 50 \
+--drop_path 0.5 --drop_mode early --drop_schedule linear --cutoff_epoch 50 \
 --data_path /path/to/data/ \
 --output_dir /path/to/results/
 ```
