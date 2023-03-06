@@ -159,3 +159,16 @@ This repository is built using the [timm](https://github.com/rwightman/pytorch-i
 
 ## License
 This project is released under the CC-BY-NC 4.0 license. Please see the [LICENSE](LICENSE) file for more information.
+
+## Citation
+If you find this repository helpful, please consider citing:
+```bibtex
+@article{liu2023dropout,
+  title={Dropout Reduces Underfitting},
+  author={Zhuang Liu, Zhiqiu Xu, Joseph Jin, Zhiqiang Shen, Trevor Darrell},
+  year={2023},
+  journal={arXiv preprint arXiv:2303.01500},
+}
+```
+
+
