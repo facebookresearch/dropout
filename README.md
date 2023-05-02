@@ -22,11 +22,11 @@ results with basic recipe (s.d. = stochastic depth)
 
 | model| ViT-T | Mixer-S | Swin-F | ConvNeXt-F |
 |:---|:---:|:---:|:---:|:---:|
-| no dropout     | 73.9  | 71.0       | 74.3   | 76.1       |
+| no dropout     | 73.9 | 71.0       | 74.3   | 76.1       |
 | standard dropout   | 67.9  | 67.1       | 71.6   | -          |
 | standard s.d. | 72.6  | 70.5       | 73.7   | 75.5       |
-| early dropout     | **74.3**  | **71.3**       | **74.7**   | -          |
-| early s.d.    | **74.4**  | **71.7**       | **75.2**   | **76.3**       |
+| early dropout     | **74.3**  | [**71.3**](https://drive.google.com/file/d/199i9rRD-u2DA22qmoZH774ibyhFUH_mE/view?usp=share_link)     | **74.7**   | -          |
+| early s.d.    | **74.4**  | [**71.7**](https://drive.google.com/file/d/1jPtWufetAQhM4oe6wOgdTsKozYCXRmdb/view?usp=share_link)     | **75.2**   | **76.3**       |
 
 
 results with improved recipe
@@ -36,8 +36,8 @@ results with improved recipe
 | no dropout     | 76.3  | 76.1   | 77.5       |
 | standard dropout   | 71.5  | 73.5   | -          |
 | standard s.d. | 75.6  | 75.6   | 77.4       |
-| early dropout     | **76.7**  | **76.6**   | -          |
-| early s.d.    | **76.7**  | **76.6**  | **77.7**       |
+| early dropout     | [**76.7**](https://drive.google.com/file/d/1q3kopfA2KazTaR9kuEEM5lzdNKHX2OQl/view?usp=share_link) | [**76.6**](https://drive.google.com/file/d/1Os16aIWD1WpSlccsFboesc0BgXN6KJ9C/view?usp=share_link) | -          |
+| early s.d.    | [**76.7**](https://drive.google.com/file/d/1GTfGbNObvGDytdb9F5wgUHxnhlVRXs6o/view?usp=share_link) | [**76.6**](https://drive.google.com/file/d/17mNr8e-TVQoVM0I6IxVJNC4f3Y--T4R_/view?usp=share_link) | [**77.7**](https://drive.google.com/file/d/1sIePqyxk5ajVdsSCRCJoTIZsV8O_fKmO/view?usp=share_link)    |
 
 
 ### Late Dropout
@@ -46,7 +46,7 @@ results with basic recipe
 | model        | ViT-B | Mixer-B |
 |:------------:|:-----:|:-------:|
 | standard s.d.   | 81.6  | 78.0    |
-| late s.d.    | 82.3  | 78.6    |
+| late s.d.    | [**82.3**](https://drive.google.com/file/d/1_AB51g6AHF-C9oGWffwOw4C1Xug1LT_0/view?usp=share_link) | [**78.6**](https://drive.google.com/file/d/1CWEi8hyEIKz7F21HlsaEIgp8eaHNFHfe/view?usp=share_link)   |
 
 
 ## Installation
