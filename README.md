@@ -25,8 +25,8 @@ results with basic recipe (s.d. = stochastic depth)
 | no dropout     | 73.9 | 71.0       | 74.3   | 76.1       |
 | standard dropout   | 67.9  | 67.1       | 71.6   | -          |
 | standard s.d. | 72.6  | 70.5       | 73.7   | 75.5       |
-| early dropout     | **74.3**  | [**71.3**](https://drive.google.com/file/d/199i9rRD-u2DA22qmoZH774ibyhFUH_mE/view?usp=share_link)     | **74.7**   | -          |
-| early s.d.    | **74.4**  | [**71.7**](https://drive.google.com/file/d/1jPtWufetAQhM4oe6wOgdTsKozYCXRmdb/view?usp=share_link)     | **75.2**   | **76.3**       |
+| early dropout     | [**74.3**](https://drive.google.com/file/d/1Sk93Fz8Pih7qLvAcyRtRjJ2w2yihh7S3/view?usp=share_link)  | [**71.3**](https://drive.google.com/file/d/199i9rRD-u2DA22qmoZH774ibyhFUH_mE/view?usp=share_link)     | [**74.7**](https://drive.google.com/file/d/1gP6vnd-wNyRiU_BTxWHbvrhNykMH-N0r/view?usp=share_link)   | -          |
+| early s.d.    | [**74.4**](https://drive.google.com/file/d/1E550KlZVgsK30u9wX5q5tXXUAxB9gfPg/view?usp=share_link)  | [**71.7**](https://drive.google.com/file/d/1jPtWufetAQhM4oe6wOgdTsKozYCXRmdb/view?usp=share_link)     | [**75.2**](https://drive.google.com/file/d/1kmFlmG_-eIdj_MLfHWtEvbvTPE6IBcYQ/view?usp=share_link)   | [**76.3**](https://drive.google.com/file/d/10v7Ua4f6FlJ3VIf6TV35beSBxjGTcv9U/view?usp=share_link)       |
 
 
 results with improved recipe
@@ -170,5 +170,3 @@ If you find this repository helpful, please consider citing:
   journal={arXiv preprint arXiv:2303.01500},
 }
 ```
-
-
