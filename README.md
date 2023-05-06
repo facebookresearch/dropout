@@ -2,7 +2,7 @@
 
 Official PyTorch implementation for **Dropout Reduces Underfitting**
 
-> [**Dropout Reduces Underfitting**](https://arxiv.org/abs/2303.01500)<br>
+> [**Dropout Reduces Underfitting**](https://arxiv.org/abs/2303.01500), ICML 2023<br>
 > [Zhuang Liu*](https://liuzhuang13.github.io), [Zhiqiu Xu*](https://oscarxzq.github.io), [Joseph Jin](https://www.linkedin.com/in/joseph-jin/), [Zhiqiang Shen](https://zhiqiangshen.com/), [Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/) (* equal contribution)
 > <br>Meta AI, UC Berkeley and MBZUAI<br>
 
@@ -15,6 +15,8 @@ Figure: We propose **early dropout** and **late dropout**. Early dropout helps u
 
 
 ## Results on ImageNet-1K
+
+Model weights are released as links on results.
 
 ### Early Dropout
 
@@ -152,7 +154,6 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --data_path /path/to/data
 ```
 
-We will release ImageNet-1K model weights soon.
 
 ## Acknowledgement
 This repository is built using the [timm](https://github.com/rwightman/pytorch-image-models) library and [ConvNeXt](https://github.com/facebookresearch/ConvNeXt) codebase.
@@ -163,10 +164,10 @@ This project is released under the CC-BY-NC 4.0 license. Please see the [LICENSE
 ## Citation
 If you find this repository helpful, please consider citing:
 ```bibtex
-@article{liu2023dropout,
+@inproceedings{liu2023dropout,
   title={Dropout Reduces Underfitting},
   author={Zhuang Liu, Zhiqiu Xu, Joseph Jin, Zhiqiang Shen, Trevor Darrell},
   year={2023},
-  journal={arXiv preprint arXiv:2303.01500},
+  booktitle={International Conference on Machine Learning},
 }
 ```
